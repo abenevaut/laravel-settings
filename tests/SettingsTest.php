@@ -2,8 +2,8 @@
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
-use Efriandika\LaravelSettings\Settings;
-use Efriandika\LaravelSettings\Cache;
+use CVEPDB\Settings\Settings;
+use CVEPDB\Settings\Cache;
 
 class SettingsTest extends PHPUnit_Framework_TestCase
 {

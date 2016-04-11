@@ -1,6 +1,6 @@
 <?php
 
-use Efriandika\LaravelSettings\Facades\Settings;
+use CVEPDB\Settings\Facades\Settings;
 
 if (!function_exists('settings'))
 {

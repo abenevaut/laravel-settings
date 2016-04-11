@@ -1,4 +1,4 @@
-<?php namespace Efriandika\LaravelSettings;
+<?php namespace CVEPDB\Settings;
 
 use Illuminate\Support\ServiceProvider;
 

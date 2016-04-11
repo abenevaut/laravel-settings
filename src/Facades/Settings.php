@@ -1,4 +1,4 @@
-<?php namespace Efriandika\LaravelSettings\Facades;
+<?php namespace CVEPDB\Settings\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

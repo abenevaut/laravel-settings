@@ -1,5 +1,5 @@
 {
-    "name": "efriandika/laravel-settings",
+    "name": "cvepdb/laravel-settings",
     "description": "Laravel 5 Persistent Settings",
     "keywords": [
         "laravel",
@@ -11,6 +11,10 @@
         {
             "name": "Efriandika Pratama",
             "email": "efriandika@gmail.com"
+        },
+        {
+            "name": "Antoine Benevaut",
+            "email": "antoine@cvepdb.fr"
         }
     ],
     "require": {
@@ -27,7 +31,7 @@
             "src/helpers.php"
         ],
         "psr-4": {
-            "Efriandika\\LaravelSettings\\": "src/"
+            "CVEPDB\\Settings\\": "src/"
         }
     }
 }
