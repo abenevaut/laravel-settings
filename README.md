@@ -1,6 +1,6 @@
+[![Build Status](https://travis-ci.org/CavaENCOREparlerdebits/laravel-settings.svg?branch=master)](https://travis-ci.org/CavaENCOREparlerdebits/laravel-settings)
 [![Latest Stable Version](https://poser.pugx.org/cvepdb/laravel-settings/v/stable.svg)](https://packagist.org/packages/cvepdb/laravel-settings)
 [![Total Downloads](https://poser.pugx.org/cvepdb/laravel-settings/downloads.svg)](https://packagist.org/packages/cvepdb/laravel-settings)
-[![Latest Unstable Version](https://poser.pugx.org/cvepdb/laravel-settings/v/unstable.svg)](https://packagist.org/packages/cvepdb/laravel-settings)
 [![License](https://poser.pugx.org/cvepdb/laravel-settings/license.svg)](https://packagist.org/packages/cvepdb/laravel-settings)
 
 # Laravel-Settings
