@@ -2,7 +2,11 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class AlterSettingsTable extends Migration {
+/**
+ * Class AlterSettingsTable
+ */
+class AlterSettingsTable extends Migration
+{
 
 	/**
 	 * Run the migrations.
@@ -11,7 +15,8 @@ class AlterSettingsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('settings', function ($table) {
+		Schema::table('settings', function ($table)
+		{
 			$table->renameColumn('key', 'setting_key');
 			$table->renameColumn('value', 'setting_value');
 		});
@@ -25,7 +30,8 @@ class AlterSettingsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('settings', function ($table) {
+		Schema::table('settings', function ($table)
+		{
 			$table->renameColumn('setting_key', 'key');
 			$table->renameColumn('setting_value', 'value');
 		});

@@ -2,13 +2,21 @@
 
 use Illuminate\Support\Facades\Facade;
 
-class Settings extends Facade {
+/**
+ * Class Settings
+ * @package CVEPDB\Settings\Facades
+ */
+class Settings extends Facade
+{
 
-    /**
-     * Get the registered name of the component.
-     *
-     * @return string
-     */
-    protected static function getFacadeAccessor() { return 'settings'; }
+	/**
+	 * Get the registered name of the component.
+	 *
+	 * @return string
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return 'settings';
+	}
 
 }
