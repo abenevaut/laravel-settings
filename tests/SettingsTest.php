@@ -41,6 +41,7 @@ class SettingsTest extends PHPUnit_Framework_TestCase
 		$this->config = [
 			'db_table'   => self::SETTINGS_TABLE,
 			'cache_file' => storage_path('settings.json'),
+			'fallback'   => false
 		];
 		$this->settings = new Settings($this->db, new Cache($this->config['cache_file']), $this->config);
 	}
