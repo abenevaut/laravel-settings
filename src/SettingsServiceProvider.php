@@ -1,11 +1,7 @@
-<?php namespace CVEPDB\Settings;
+<?php namespace ABENEVAUT\Settings;
 
 use Illuminate\Support\ServiceProvider;
 
-/**
- * Class SettingsServiceProvider
- * @package CVEPDB\Settings
- */
 class SettingsServiceProvider extends ServiceProvider
 {
 

@@ -1,10 +1,7 @@
 <?php
 
-use CVEPDB\Settings\Cache;
+use ABENEVAUT\Settings\Cache;
 
-/**
- * Class CacheTest
- */
 class CacheTest extends PHPUnit_Framework_TestCase
 {
 

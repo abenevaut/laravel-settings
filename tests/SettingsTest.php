@@ -3,12 +3,9 @@
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
-use CVEPDB\Settings\Settings;
-use CVEPDB\Settings\Cache;
+use ABENEVAUT\Settings\Settings;
+use ABENEVAUT\Settings\Cache;
 
-/**
- * Class SettingsTest
- */
 class SettingsTest extends PHPUnit_Framework_TestCase
 {
 

@@ -1,6 +1,6 @@
 <?php
 
-use CVEPDB\Settings\Facades\Settings;
+use ABENEVAUT\Settings\Facades\Settings;
 
 if (!function_exists('settings'))
 {

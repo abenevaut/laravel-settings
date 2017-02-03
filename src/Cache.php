@@ -1,9 +1,5 @@
-<?php namespace CVEPDB\Settings;
+<?php namespace ABENEVAUT\Settings;
 
-/**
- * Class Cache
- * @package CVEPDB\Settings
- */
 class Cache
 {
 

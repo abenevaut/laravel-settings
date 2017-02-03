@@ -9,7 +9,7 @@ Laravel 5.2.x Persistent Settings (Database + Cache)
 ### Attention: for update to v1.2.0
 Re-Publish new migration file
 
-    $ php artisan vendor:publish --provider="CVEPDB\Settings\SettingsServiceProvider" --force
+    $ php artisan vendor:publish --provider="ABENEVAUT\Settings\SettingsServiceProvider" --force
 
 And run
 
@@ -30,15 +30,15 @@ then run `composer update`:
 
 After updating composer, Register the ServiceProvider to the `providers` array in `config/app.php`
 
-    'CVEPDB\Settings\SettingsServiceProvider',
+    'ABENEVAUT\Settings\SettingsServiceProvider',
 
 Add an alias for the facade to `aliases` array in  your `config/app.php`
 
-    'Settings'  => CVEPDB\Settings\Facades\Settings::class,
+    'Settings'  => ABENEVAUT\Settings\Facades\Settings::class,
 
 Publish the config and migration files now (Attention: This command will not work if you don't follow previous instruction):
 
-    $ php artisan vendor:publish --provider="CVEPDB\Settings\SettingsServiceProvider" --force
+    $ php artisan vendor:publish --provider="ABENEVAUT\Settings\SettingsServiceProvider" --force
 
 Change `config/settings.php` according to your needs. If you change `db_table`, don't forget to change the table's name
 in the migration file as well.

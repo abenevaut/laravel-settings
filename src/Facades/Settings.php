@@ -1,11 +1,7 @@
-<?php namespace CVEPDB\Settings\Facades;
+<?php namespace ABENEVAUT\Settings\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * Class Settings
- * @package CVEPDB\Settings\Facades
- */
 class Settings extends Facade
 {
 
