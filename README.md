@@ -5,7 +5,7 @@
 
 # Laravel-Settings
 
-Laravel 5.3.x persistent settings
+Laravel 5.4.x persistent settings
 
 # Install process
 
