@@ -1,24 +1,18 @@
-[![Build Status](https://travis-ci.org/CavaENCOREparlerdebits/laravel-settings.svg?branch=master)](https://travis-ci.org/CavaENCOREparlerdebits/laravel-settings)
-[![Latest Stable Version](https://poser.pugx.org/cvepdb/laravel-settings/v/stable.svg)](https://packagist.org/packages/cvepdb/laravel-settings)
-[![Total Downloads](https://poser.pugx.org/cvepdb/laravel-settings/downloads.svg)](https://packagist.org/packages/cvepdb/laravel-settings)
-[![License](https://poser.pugx.org/cvepdb/laravel-settings/license.svg)](https://packagist.org/packages/cvepdb/laravel-settings)
+[![Build Status](https://travis-ci.org/abenevaut/laravel-settings.svg?branch=master)](https://travis-ci.org/abenevaut/laravel-settings)
+[![Latest Stable Version](https://poser.pugx.org/abenevaut/laravel-settings/v/stable.svg)](https://packagist.org/packages/abenevaut/laravel-settings)
+[![Total Downloads](https://poser.pugx.org/abenevaut/laravel-settings/downloads.svg)](https://packagist.org/packages/abenevaut/laravel-settings)
+[![License](https://poser.pugx.org/abenevaut/laravel-settings/license.svg)](https://packagist.org/packages/abenevaut/laravel-settings)
 
 # Laravel-Settings
-Laravel 5.2.x Persistent Settings (Database + Cache)
-
-### Attention: for update to v1.2.0
-Re-Publish new migration file
-
-    $ php artisan vendor:publish --provider="ABENEVAUT\Settings\SettingsServiceProvider" --force
-
-And run
-
-    $ php artisan migrate
+Laravel 5.3.x Persistent Settings (Database + Cache)
 
 ## How to Install
-Require this package with composer ([Packagist](https://packagist.org/packages/cvepdb/laravel-settings)) using the following command:
+
+Require this package with composer ([Packagist](https://packagist.org/packages/abenevaut/laravel-settings)) using the following command:
 
     composer require abenevaut/laravel-settings
+    $> php artisan vendor:publish --provider="ABENEVAUT\Settings\SettingsServiceProvider" --force
+    $> php artisan migrate
 
 or modify your `composer.json`:
 
