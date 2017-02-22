@@ -1,6 +1,6 @@
-<?php namespace ABENEVAUT\Settings;
+<?php namespace ABENEVAUT\Settings\Domain\Settings\Cache\Repositories;
 
-class Cache
+class CacheRepository
 {
 
 	/**

@@ -1,13 +1,10 @@
-<?php namespace CVEPDB\Settings;
+<?php namespace ABENEVAUT\Settings\Domain\Settings\Settings\Repositories;
 
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\Facades\Config;
+use ABENEVAUT\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
 
-/**
- * Class Settings
- * @package CVEPDB\Settings
- */
-class Settings
+class SettingsRepository
 {
 
 	/**
@@ -28,7 +25,7 @@ class Settings
 	/**
 	 * Cache
 	 *
-	 * @var \Efriandika\LaravelSettings\Cache
+	 * @var CacheRepository
 	 */
 	protected $cache;
 
@@ -37,7 +34,11 @@ class Settings
 	 *
 	 * @param DatabaseManager $database
 	 */
-	public function __construct(DatabaseManager $database, Cache $cache, $config = array())
+	public function __construct(
+		DatabaseManager $database,
+		CacheRepository $cache,
+		$config = []
+	)
 	{
 		$this->database = $database;
 		$this->config = $config;
@@ -177,6 +178,4 @@ class Settings
 	{
 		return $this->cache->getAll();
 	}
-
-
 }

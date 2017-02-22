@@ -1,6 +1,8 @@
-<?php namespace ABENEVAUT\Settings;
+<?php namespace ABENEVAUT\Settings\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use ABENEVAUT\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
+use ABENEVAUT\Settings\Domain\Settings\Settings\Repositories\SettingsRepository;
 
 class SettingsServiceProvider extends ServiceProvider
 {
@@ -45,7 +47,11 @@ class SettingsServiceProvider extends ServiceProvider
 				'db_table'   => 'settings'
 			]);
 
-			return new Settings($app['db'], new Cache($config['cache_file']), $config);
+			return new SettingsRepository(
+				$app['db'],
+				new CacheRepository($config['cache_file']),
+				$config
+			);
 		});
 	}
 
@@ -57,7 +63,6 @@ class SettingsServiceProvider extends ServiceProvider
 	 */
 	public function provides()
 	{
-		return array('settings');
+		return ['settings'];
 	}
-
 }

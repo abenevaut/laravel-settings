@@ -18,27 +18,27 @@ And run
 ## How to Install
 Require this package with composer ([Packagist](https://packagist.org/packages/cvepdb/laravel-settings)) using the following command:
 
-    composer require cvepdb/laravel-settings
+    composer require abenevaut/laravel-settings
 
 or modify your `composer.json`:
 
        "require": {
-          "cvepdb/laravel-settings": "1.*"
+          "abenevaut/laravel-settings": "5.3.*"
        }
 
 then run `composer update`:
 
 After updating composer, Register the ServiceProvider to the `providers` array in `config/app.php`
 
-    'ABENEVAUT\Settings\SettingsServiceProvider',
+    'ABENEVAUT\Settings\App\Providers\SettingsServiceProvider',
 
 Add an alias for the facade to `aliases` array in  your `config/app.php`
 
-    'Settings'  => ABENEVAUT\Settings\Facades\Settings::class,
+    'Settings'  => ABENEVAUT\Settings\App\Facades\Settings::class,
 
 Publish the config and migration files now (Attention: This command will not work if you don't follow previous instruction):
 
-    $ php artisan vendor:publish --provider="ABENEVAUT\Settings\SettingsServiceProvider" --force
+    $ php artisan vendor:publish --provider="ABENEVAUT\Settings\App\Providers\SettingsServiceProvider" --force
 
 Change `config/settings.php` according to your needs. If you change `db_table`, don't forget to change the table's name
 in the migration file as well.

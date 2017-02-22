@@ -1,12 +1,13 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
-use ABENEVAUT\Settings\Settings;
-use ABENEVAUT\Settings\Cache;
+use ABENEVAUT\Settings\Domain\Settings\Settings\Repositories\SettingsRepository;
+use ABENEVAUT\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
 
-class SettingsTest extends PHPUnit_Framework_TestCase
+class SettingsTest extends TestCase
 {
 
 	const SETTINGS_TABLE = 'settings';
@@ -40,7 +41,12 @@ class SettingsTest extends PHPUnit_Framework_TestCase
 			'cache_file' => storage_path('settings.json'),
 			'fallback'   => false
 		];
-		$this->settings = new Settings($this->db, new Cache($this->config['cache_file']), $this->config);
+
+		$this->settings = new SettingsRepository(
+			$this->db,
+			new CacheRepository($this->config['cache_file']),
+			$this->config
+		);
 	}
 
 	/**
@@ -179,5 +185,4 @@ class SettingsTest extends PHPUnit_Framework_TestCase
 
 		return $capsule->getDatabaseManager();
 	}
-
 }

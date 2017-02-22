@@ -1,17 +1,13 @@
 {
     "name": "abenevaut/laravel-settings",
-    "description": "Laravel 5 Persistent Settings",
+    "description": "Laravel 5 persistent settings",
     "keywords": [
         "laravel",
         "settings",
         "persistent"
     ],
-    "license": "MIT",
+    "license": "GPL-3",
     "authors": [
-        {
-            "name": "Efriandika Pratama",
-            "email": "efriandika@gmail.com"
-        },
         {
             "name": "Antoine Benevaut",
             "email": "antoine@benevaut.fr"
@@ -19,12 +15,12 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "illuminate/support": "5.*"
+        "illuminate/support": "5.3.23"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.6.*",
-        "illuminate/database": "~5.1",
-        "illuminate/events": "5.1.*"
+        "phpunit/phpunit": "6.0.7",
+        "illuminate/database": "5.3.23",
+        "illuminate/events": "5.3.23"
     },
     "autoload": {
         "files": [
@@ -33,5 +29,10 @@
         "psr-4": {
             "ABENEVAUT\\Settings\\": "src/"
         }
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit"
+        ]
     }
 }

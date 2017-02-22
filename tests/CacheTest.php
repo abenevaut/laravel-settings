@@ -1,8 +1,9 @@
 <?php
 
-use ABENEVAUT\Settings\Cache;
+use PHPUnit\Framework\TestCase;
+use ABENEVAUT\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
 
-class CacheTest extends PHPUnit_Framework_TestCase
+class CacheTest extends TestCase
 {
 
 	protected $cache;
@@ -11,7 +12,7 @@ class CacheTest extends PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->cacheFile = storage_path('settings.json');
-		$this->cache = new Cache($this->cacheFile);
+		$this->cache = new CacheRepository($this->cacheFile);
 	}
 
 	public function testSet()

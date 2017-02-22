@@ -1,8 +1,8 @@
-<?php namespace ABENEVAUT\Settings\Facades;
+<?php namespace ABENEVAUT\Settings\App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Settings extends Facade
+class SettingsFacade extends Facade
 {
 
 	/**
@@ -14,5 +14,4 @@ class Settings extends Facade
 	{
 		return 'settings';
 	}
-
 }
