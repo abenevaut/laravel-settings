@@ -94,18 +94,10 @@ Example
 
 > Note: It will work if default value in laravel setting is not set
 
-### Changelogs
-v1.2.0 - Dec 16th, 2015
-
-* Bugs fix
-* Adding Feature: Fallback Value
-
-
-### To Do
-
--
-
 ### License
 
 The Laravel 5 Persistent Settings is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
+# Credits to main author
+
+Original package : [efriandika/laravel-settings](https://github.com/efriandika/laravel-settings)
