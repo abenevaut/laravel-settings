@@ -39,7 +39,7 @@ class SettingsServiceProvider extends ServiceProvider
 		$this->mergeConfigFrom(
 			__DIR__ . '/../../config/settings.php', 'settings'
 		);
-		$this->app['settings'] = $this->app->singleton('settings', function ($app)
+		$this->app->singleton('settings', function ($app)
 		{
 
 			$config = $app->config->get('settings', [
