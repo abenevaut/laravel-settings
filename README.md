@@ -25,7 +25,7 @@ Laravel 5.4.x persistent settings
 
     ...
     
-    'Settings'  => ABENEVAUT\Settings\App\Facades\Settings::class,
+    'Settings'  => ABENEVAUT\Settings\App\Facades\SettingsFacade::class,
     
     ...
 
