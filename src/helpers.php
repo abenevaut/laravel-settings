@@ -1,6 +1,6 @@
 <?php
 
-use ABENEVAUT\Settings\Facades\Settings;
+use ABENEVAUT\Settings\App\Facades\SettingsFacade;
 
 if (!function_exists('settings'))
 {
@@ -12,6 +12,6 @@ if (!function_exists('settings'))
 	 */
 	function settings($key, $default = null)
 	{
-		return Settings::get($key, $default);
+		return SettingsFacade::get($key, $default);
 	}
 }
