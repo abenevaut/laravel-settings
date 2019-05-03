@@ -32,7 +32,7 @@ class SettingsTest extends TestCase
 	/**
 	 *
 	 */
-	protected function setUp()
+	protected function setUp(): void
 	{
 		$this->db = $this->initDb();
 
