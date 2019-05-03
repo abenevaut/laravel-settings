@@ -9,7 +9,7 @@ class CacheTest extends TestCase
 	protected $cache;
 	protected $cacheFile;
 
-	protected function setUp()
+    protected function setUp(): void
 	{
 		$this->cacheFile = storage_path('settings.json');
 		$this->cache = new CacheRepository($this->cacheFile);
@@ -69,7 +69,7 @@ class CacheTest extends TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown(): void
 	{
 		@unlink(storage_path('settings.json'));
 	}

@@ -32,7 +32,7 @@ class SettingsTest extends TestCase
 	/**
 	 *
 	 */
-	protected function setUp()
+	protected function setUp(): void
 	{
 		$this->db = $this->initDb();
 
@@ -153,7 +153,7 @@ class SettingsTest extends TestCase
 	/**
 	 *
 	 */
-	protected function tearDown()
+	protected function tearDown(): void
 	{
 		Capsule::schema()->drop('settings');
 		@unlink(storage_path('settings.json'));
