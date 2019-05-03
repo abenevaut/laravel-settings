@@ -1,0 +1,2 @@
+- [Follow the milestones list](https://github.com/abenevaut/laravel-settings/milestones?state=closed)
+- [Follow the list of current work in progress milestones](https://github.com/abenevaut/laravel-settings/milestones)
