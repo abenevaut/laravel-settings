@@ -69,7 +69,7 @@ class CacheTest extends TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown(): void
 	{
 		@unlink(storage_path('settings.json'));
 	}
