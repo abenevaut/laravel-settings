@@ -13,5 +13,7 @@ plugins:
         - php
       rulesets: "unusedcode,codesize"
 exclude_patterns:
+  - src/database
+  - src/config
   - tests
   - vendor
