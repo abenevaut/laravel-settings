@@ -1,17 +1,52 @@
+sudo: required
+dist: trusty
 language: php
+
+git:
+  submodules: false
+
+addons:
+  hosts:
+    - www.benevaut.fr.local
+
+cache:
+  apt: true
+  directories:
+    - $HOME/.composer/cache
+    - vendor
 
 matrix:
   fast_finish: true
   include:
     - php: 7.1
     - php: 7.2
+      env:
+        - CODECLIMATE=on
     - php: 7.3
     - php: nightly
   allow_failures:
     - php: nightly
 
+before_install:
+  - |
+    if [[ "$CODECLIMATE" = "on" ]]; then
+      curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      chmod +x ./cc-test-reporter
+    fi
+
+install:
+  - travis_retry composer install -o --no-interaction --prefer-dist --no-suggest
+
 before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev
+  - |
+    if [[ "$CODECLIMATE" = "on" ]]; then
+      ./cc-test-reporter before-build
+    fi
 
 script: composer test
+
+after_script:
+  - |
+    if [[ "$CODECLIMATE" = "on" ]]; then
+        ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT
+    fi

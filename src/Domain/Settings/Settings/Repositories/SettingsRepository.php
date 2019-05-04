@@ -57,22 +57,14 @@ class SettingsRepository
 	{
 		$value = $this->fetch($key);
 
-		if (!is_null($value))
-		{
+		if (!is_null($value)) {
 			return $value;
 		}
-		else if ($default != null)
-		{
-			return $default;
-		}
-		else if ($this->config['fallback'])
-		{
+		elseif ($this->config['fallback']) {
 			return Config::get($key, null);
 		}
-		else
-		{
-			return $default;
-		}
+
+        return $default;
 	}
 
 	/**

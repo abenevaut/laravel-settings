@@ -1,0 +1,17 @@
+version: "2"
+
+plugins:
+  phpcodesniffer:
+    enabled: true
+    config:
+      file_extensions: "php"
+      standard: "PSR2"
+  phpmd:
+    enabled: true
+    config:
+      file_extensions:
+        - php
+      rulesets: "unusedcode,codesize"
+exclude_patterns:
+  - tests
+  - vendor
