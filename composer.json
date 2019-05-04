@@ -28,7 +28,7 @@
             "src/helpers.php"
         ],
         "psr-4": {
-            "ABENEVAUT\\Settings\\": "src/"
+            "abenevaut\\Settings\\": "src/"
         }
     },
     "scripts": {

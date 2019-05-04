@@ -1,8 +1,8 @@
-<?php namespace ABENEVAUT\Settings\Domain\Settings\Settings\Repositories;
+<?php namespace abenevaut\Settings\Domain\Settings\Settings\Repositories;
 
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\Facades\Config;
-use ABENEVAUT\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
+use abenevaut\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
 
 class SettingsRepository
 {

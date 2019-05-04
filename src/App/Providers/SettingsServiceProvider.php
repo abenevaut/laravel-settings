@@ -1,8 +1,8 @@
-<?php namespace ABENEVAUT\Settings\App\Providers;
+<?php namespace abenevaut\Settings\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use ABENEVAUT\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
-use ABENEVAUT\Settings\Domain\Settings\Settings\Repositories\SettingsRepository;
+use abenevaut\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
+use abenevaut\Settings\Domain\Settings\Settings\Repositories\SettingsRepository;
 
 class SettingsServiceProvider extends ServiceProvider
 {

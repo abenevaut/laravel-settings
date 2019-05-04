@@ -1,4 +1,4 @@
-<?php namespace ABENEVAUT\Settings\Domain\Settings\Cache\Repositories;
+<?php namespace abenevaut\Settings\Domain\Settings\Cache\Repositories;
 
 class CacheRepository
 {
