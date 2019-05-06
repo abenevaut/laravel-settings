@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use ABENEVAUT\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
+use abenevaut\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
 
 class CacheTest extends TestCase
 {

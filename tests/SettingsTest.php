@@ -4,8 +4,8 @@ use PHPUnit\Framework\TestCase;
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
-use ABENEVAUT\Settings\Domain\Settings\Settings\Repositories\SettingsRepository;
-use ABENEVAUT\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
+use abenevaut\Settings\Domain\Settings\Settings\Repositories\SettingsRepository;
+use abenevaut\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
 
 class SettingsTest extends TestCase
 {
