@@ -1,11 +1,14 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+use abenevaut\Settings\Domain\Settings\{
+    Settings\Repositories\SettingsRepository,
+    Cache\Repositories\CacheRepository
+};
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
-use abenevaut\Settings\Domain\Settings\Settings\Repositories\SettingsRepository;
-use abenevaut\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
+use Illuminate\Support\Facades\Config;
+use PHPUnit\Framework\TestCase;
 
 class SettingsTest extends TestCase
 {
@@ -42,11 +45,7 @@ class SettingsTest extends TestCase
 			'fallback'   => false
 		];
 
-		$this->settings = new SettingsRepository(
-			$this->db,
-			new CacheRepository($this->config['cache_file']),
-			$this->config
-		);
+		$this->initSettingsRepository();
 	}
 
 	/**
@@ -54,13 +53,28 @@ class SettingsTest extends TestCase
 	 */
 	public function testSet()
 	{
-		$set = 'value';
-		$this->settings->set('key', $set);
+        /*
+         * Add setting
+         */
+        $set = 'value';
+        $this->settings->set('key', $set);
 
-		$setting = $this->db->table(self::SETTINGS_TABLE)->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
+        $setting = $this->db->table(self::SETTINGS_TABLE)
+            ->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
 
-		$this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
-		$this->assertEquals($set, $this->settings->get('key'));
+        $this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
+        $this->assertEquals($set, $this->settings->get('key'));
+        /*
+         * Update setting
+         */
+        $set = 'value2';
+        $this->settings->set('key', $set);
+
+        $setting = $this->db->table(self::SETTINGS_TABLE)
+            ->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
+
+        $this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
+        $this->assertEquals($set, $this->settings->get('key'));
 	}
 
 	/**
@@ -68,13 +82,28 @@ class SettingsTest extends TestCase
 	 */
 	public function testSetArray()
 	{
-		$set = ['key' => 'value'];
-		$this->settings->set('key', $set);
+        /*
+         * Add setting
+         */
+        $set = ['key' => 'value'];
+        $this->settings->set('key', $set);
 
-		$setting = $this->db->table(self::SETTINGS_TABLE)->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
+        $setting = $this->db->table(self::SETTINGS_TABLE)
+            ->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
 
-		$this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
-		$this->assertEquals($set, $this->settings->get('key'));
+        $this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
+        $this->assertEquals($set, $this->settings->get('key'));
+        /*
+	     * Update setting
+	     */
+        $set = ['key' => 'value2'];
+        $this->settings->set('key', $set);
+
+        $setting = $this->db->table(self::SETTINGS_TABLE)
+            ->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
+
+        $this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
+        $this->assertEquals($set, $this->settings->get('key'));
 	}
 
 	/**
@@ -86,6 +115,35 @@ class SettingsTest extends TestCase
 		$this->settings->set('key', $set);
 
 		$this->assertEquals($set, $this->settings->get('key'));
+
+		/*
+		 * Mock `$this->settings->get('key')` to use the configuration fallback value.
+		 */
+
+        $this->config = [
+            'db_table'   => self::SETTINGS_TABLE,
+            'cache_file' => storage_path('settings.json'),
+            'fallback'   => true
+        ];
+        $this->initSettingsRepository();
+
+		Config::shouldReceive('get')
+            ->once()
+            ->with('unknownKey', null)
+            ->andReturn('fallbackValue');
+
+        $this->assertEquals('fallbackValue', $this->settings->get('unknownKey'));
+
+        /*
+         * Then reset config.
+         */
+
+        $this->config = [
+            'db_table'   => self::SETTINGS_TABLE,
+            'cache_file' => storage_path('settings.json'),
+            'fallback'   => false
+        ];
+        self::setUp();
 	}
 
 	/**
@@ -185,4 +243,13 @@ class SettingsTest extends TestCase
 
 		return $capsule->getDatabaseManager();
 	}
+
+	private function initSettingsRepository()
+    {
+        $this->settings = new SettingsRepository(
+            $this->db,
+            new CacheRepository($this->config['cache_file']),
+            $this->config
+        );
+    }
 }
