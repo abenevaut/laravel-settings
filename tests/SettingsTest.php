@@ -59,7 +59,8 @@ class SettingsTest extends TestCase
         $set = 'value';
         $this->settings->set('key', $set);
 
-        $setting = $this->db->table(self::SETTINGS_TABLE)->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
+        $setting = $this->db->table(self::SETTINGS_TABLE)
+            ->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
 
         $this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
         $this->assertEquals($set, $this->settings->get('key'));
@@ -69,7 +70,8 @@ class SettingsTest extends TestCase
         $set = 'value2';
         $this->settings->set('key', $set);
 
-        $setting = $this->db->table(self::SETTINGS_TABLE)->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
+        $setting = $this->db->table(self::SETTINGS_TABLE)
+            ->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
 
         $this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
         $this->assertEquals($set, $this->settings->get('key'));
@@ -86,7 +88,8 @@ class SettingsTest extends TestCase
         $set = ['key' => 'value'];
         $this->settings->set('key', $set);
 
-        $setting = $this->db->table(self::SETTINGS_TABLE)->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
+        $setting = $this->db->table(self::SETTINGS_TABLE)
+            ->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
 
         $this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
         $this->assertEquals($set, $this->settings->get('key'));
@@ -96,7 +99,8 @@ class SettingsTest extends TestCase
         $set = ['key' => 'value2'];
         $this->settings->set('key', $set);
 
-        $setting = $this->db->table(self::SETTINGS_TABLE)->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
+        $setting = $this->db->table(self::SETTINGS_TABLE)
+            ->where(self::SETTINGS_COL_KEY, 'key')->first([self::SETTINGS_COL_VAL]);
 
         $this->assertEquals($set, unserialize($setting->{self::SETTINGS_COL_VAL}));
         $this->assertEquals($set, $this->settings->get('key'));
