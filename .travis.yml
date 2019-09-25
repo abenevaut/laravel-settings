@@ -18,13 +18,17 @@ cache:
 matrix:
   fast_finish: true
   include:
-    - php: 7.1
-    - php: 7.2
+    - php: 7.3
       env:
         - CODECLIMATE=on
-    - php: 7.3
+    - php: 7.4
+      env:
+        - CODECLIMATE=off
     - php: nightly
+      env:
+        - CODECLIMATE=off
   allow_failures:
+    - php: 7.4
     - php: nightly
 
 before_install:
@@ -48,5 +52,7 @@ script: composer test
 after_script:
   - |
     if [[ "$CODECLIMATE" = "on" ]]; then
-        ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT
+      ./cc-test-reporter format-coverage -t clover -o coverage/codeclimate.php.json coverage/clover.xml
+      ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 1
+      ./cc-test-reporter upload-coverage
     fi
