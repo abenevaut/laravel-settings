@@ -20,13 +20,28 @@ matrix:
   include:
     - php: 7.3
       env:
+        - CODECLIMATE=off
+        - COMPOSER_FLAGS="--prefer-lowest" # Cover laravel 5.5.x (LTS) vendors
+    - php: 7.3
+      env:
         - CODECLIMATE=on
+        - COMPOSER_FLAGS="" # Cover laravel 6.0.x (LTS) vendors
     - php: 7.4
       env:
         - CODECLIMATE=off
+        - COMPOSER_FLAGS="--prefer-lowest" # Cover laravel 5.5.x (LTS) vendors
+    - php: 7.4
+      env:
+        - CODECLIMATE=off
+        - COMPOSER_FLAGS="" # Cover laravel 6.0.x (LTS) vendors
     - php: nightly
       env:
         - CODECLIMATE=off
+        - COMPOSER_FLAGS="--prefer-lowest" # Cover laravel 5.5.x (LTS) vendors
+    - php: nightly
+      env:
+        - CODECLIMATE=off
+        - COMPOSER_FLAGS="" # Cover laravel 6.0.x (LTS) vendors
   allow_failures:
     - php: 7.4
     - php: nightly
@@ -40,6 +55,8 @@ before_install:
 
 install:
   - travis_retry composer install -o --no-interaction --prefer-dist --no-suggest
+  - travis_retry composer update --prefer-source $COMPOSER_FLAGS
+  - composer info illuminate/support | grep "versions"
 
 before_script:
   - |
