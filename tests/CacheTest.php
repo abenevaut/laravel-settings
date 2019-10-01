@@ -1,4 +1,4 @@
-<?php
+<?php namespace abenevaut\Tests;
 
 use PHPUnit\Framework\TestCase;
 use abenevaut\Settings\Domain\Settings\Cache\Repositories\CacheRepository;

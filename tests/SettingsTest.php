@@ -1,52 +1,22 @@
-<?php
+<?php namespace abenevaut\Tests;
 
-use abenevaut\Settings\Domain\Settings\{
-    Settings\Repositories\SettingsRepository,
-    Cache\Repositories\CacheRepository
-};
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Config;
 use PHPUnit\Framework\TestCase;
+use abenevaut\Settings\Domain\Settings\Settings\Repositories\SettingsRepository;
+use abenevaut\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
+use abenevaut\Tests\SettingsTrait;
 
 class SettingsTest extends TestCase
 {
 
-	const SETTINGS_TABLE = 'settings';
-	const SETTINGS_COL_KEY = 'setting_key';
-	const SETTINGS_COL_VAL = 'setting_value';
+    const SETTINGS_TABLE = 'settings';
+    const SETTINGS_COL_KEY = 'setting_key';
+    const SETTINGS_COL_VAL = 'setting_value';
 
-	/**
-	 * @var
-	 */
-	protected $settings;
-
-	/**
-	 * @var
-	 */
-	protected $db;
-
-	/**
-	 * @var
-	 */
-	protected $config;
-
-	/**
-	 *
-	 */
-	protected function setUp(): void
-	{
-		$this->db = $this->initDb();
-
-		$this->config = [
-			'db_table'   => self::SETTINGS_TABLE,
-			'cache_file' => storage_path('settings.json'),
-			'fallback'   => false
-		];
-
-		$this->initSettingsRepository();
-	}
+    use SettingsTrait;
 
 	/**
 	 *
@@ -217,39 +187,5 @@ class SettingsTest extends TestCase
 		@unlink(storage_path('settings.json'));
 	}
 
-	/**
-	 * @return \Illuminate\Database\DatabaseManager
-	 */
-	private function initDb()
-	{
-		$capsule = new Capsule;
 
-		$capsule->addConnection([
-			'driver'   => 'sqlite',
-			'host'     => 'localhost',
-			'database' => ':memory:',
-			'prefix'   => '',
-		]);
-
-		$capsule->setEventDispatcher(new Dispatcher(new Container));
-		$capsule->setAsGlobal();
-		$capsule->bootEloquent();
-
-		Capsule::schema()->create('settings', function ($table)
-		{
-			$table->string(self::SETTINGS_COL_KEY, 100)->index()->unique('key');
-			$table->text(self::SETTINGS_COL_VAL, 65535)->nullable();
-		});
-
-		return $capsule->getDatabaseManager();
-	}
-
-	private function initSettingsRepository()
-    {
-        $this->settings = new SettingsRepository(
-            $this->db,
-            new CacheRepository($this->config['cache_file']),
-            $this->config
-        );
-    }
 }

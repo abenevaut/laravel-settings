@@ -41,7 +41,7 @@ class SettingsServiceProvider extends ServiceProvider
             'settings'
         );
         $this->app->singleton('settings', function ($app) {
-
+            // @codeCoverageIgnoreStart
             $config = $app->config->get('settings', [
                 'cache_file' => storage_path('settings.json'),
                 'db_table'   => 'settings'
@@ -52,6 +52,7 @@ class SettingsServiceProvider extends ServiceProvider
                 new CacheRepository($config['cache_file']),
                 $config
             );
+            // @codeCoverageIgnoreEnd
         });
     }
 
