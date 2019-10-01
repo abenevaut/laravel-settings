@@ -1,4 +1,6 @@
-<?php namespace abenevaut\Settings\App\Facades;
+<?php
+
+namespace abenevaut\Settings\App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
