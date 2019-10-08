@@ -1,4 +1,6 @@
-<?php namespace abenevaut\Settings\App\Providers;
+<?php
+
+namespace abenevaut\Settings\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use abenevaut\Settings\Domain\Settings\Cache\Repositories\CacheRepository;
@@ -41,7 +43,7 @@ class SettingsServiceProvider extends ServiceProvider
             'settings'
         );
         $this->app->singleton('settings', function ($app) {
-
+            // @codeCoverageIgnoreStart
             $config = $app->config->get('settings', [
                 'cache_file' => storage_path('settings.json'),
                 'db_table'   => 'settings'
@@ -52,6 +54,7 @@ class SettingsServiceProvider extends ServiceProvider
                 new CacheRepository($config['cache_file']),
                 $config
             );
+            // @codeCoverageIgnoreEnd
         });
     }
 

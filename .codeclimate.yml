@@ -5,7 +5,7 @@ plugins:
     enabled: true
     config:
       file_extensions: "php"
-      standard: "PSR2"
+      standard: "PSR12"
   phpmd:
     enabled: true
     config:

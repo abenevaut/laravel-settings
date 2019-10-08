@@ -1,7 +1,7 @@
-<?php
+<?php namespace abenevaut\Tests;
 
-use abenevaut\Settings\App\Facades\SettingsFacade;
 use PHPUnit\Framework\TestCase;
+use abenevaut\Settings\App\Facades\SettingsFacade;
 
 class HelpersTest extends TestCase
 {
