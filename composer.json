@@ -31,7 +31,11 @@
             "src/helpers.php"
         ],
         "psr-4": {
-            "abenevaut\\Settings\\": "src/",
+            "abenevaut\\Settings\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "abenevaut\\Tests\\": "tests/"
         }
     },
