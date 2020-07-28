@@ -1,4 +1,6 @@
-<?php namespace abenevaut\Tests;
+<?php
+
+namespace Tests;
 
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -45,7 +47,7 @@ trait SettingsTrait
      */
     private function initDb()
     {
-        $capsule = new Capsule;
+        $capsule = new Capsule();
 
         $capsule->addConnection([
             'driver'   => 'sqlite',
@@ -54,12 +56,11 @@ trait SettingsTrait
             'prefix'   => '',
         ]);
 
-        $capsule->setEventDispatcher(new Dispatcher(new Container));
+        $capsule->setEventDispatcher(new Dispatcher(new Container()));
         $capsule->setAsGlobal();
         $capsule->bootEloquent();
 
-        Capsule::schema()->create('settings', function ($table)
-        {
+        Capsule::schema()->create('settings', function ($table) {
             $table->string('setting_key', 100)->index()->unique('key');
             $table->text('setting_value', 65535)->nullable();
         });

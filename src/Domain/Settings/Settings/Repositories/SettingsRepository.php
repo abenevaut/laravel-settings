@@ -61,7 +61,7 @@ class SettingsRepository
         if (!is_null($value)) {
             return $value;
         } elseif ($this->config['fallback']) {
-            return Config::get($key, null);
+            return Config::get($key, $default);
         }
 
         return $default;

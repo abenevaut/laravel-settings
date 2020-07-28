@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * Class AlterSettingsTable
+ *
+ * phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
  */
 class AlterSettingsTable extends Migration
 {
