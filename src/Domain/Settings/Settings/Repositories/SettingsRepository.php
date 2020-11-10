@@ -74,7 +74,6 @@ class SettingsRepository
      */
     private function fetch($key)
     {
-
         if ($this->cache->hasKey($key)) {
             return $this->cache->get($key);
         }

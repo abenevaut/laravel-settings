@@ -13,9 +13,9 @@ class ServiceProviderTest extends TestCase
     public function testSettingsServiceProvider()
     {
         $app = \Mockery::mock(Container::class, function ($mock) {
-            $mock->shouldReceive('configurationIsCached')->once()->andReturn(true);
+            $mock->shouldReceive('configurationIsCached')->once()->andReturn(true); // laravel 6
             $mock->shouldReceive('singleton')->once()->andReturn($this->settings);
-            $mock->shouldReceive('offsetGet')->once()->andReturn(new FakeConfig());
+            $mock->shouldReceive('make')->once()->andReturn(new FakeConfig());
         });
 
         $provider = new SettingsServiceProvider($app);
